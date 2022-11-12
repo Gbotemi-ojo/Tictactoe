@@ -1,0 +1,393 @@
+body{
+  margin: 0;
+  padding: 0;
+}
+.theGame{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(24, 42, 51);
+}
+.menu{
+  display: flex;
+  flex-direction: column;
+  height: 60vh;
+  width: 27vw;
+  justify-content: space-between;
+}
+.menu >div:first-child{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.menu > div:nth-child(2) > div:nth-child(2){
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 80%;
+  height: 40%;
+  background-color: rgb(24, 42, 51);
+}
+.menu > div:nth-child(2) > div:nth-child(2) > div:first-child{
+  background-color: #A8BFC9;
+  width: 45%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80%;
+  border-radius: 10px;
+}
+.menu > div:nth-child(2) > div:nth-child(2) > div > img{
+  width: 35px;
+}
+.menu > div:nth-child(2) > div:nth-child(2) > div:nth-child(2){
+  width: 45%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  height: 80%;
+}
+.menu > div:nth-child(2) > div:nth-child(1){
+  color: rgb(219,232,237);
+  font-size: 17px;
+  font-weight: 400;
+}
+.menu > div:nth-child(2) > div:nth-child(3){
+  color:  #A8BFC9;
+  font-size: 15px;
+  font-weight: 400;
+}
+.menu > div:nth-child(2){
+  height: 40%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  border-radius: 12px;
+  background-color: rgb(31, 54, 65);
+}
+.menu > div:nth-child(3){
+  width: 100%;
+  height: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.menu > div:nth-child(3) > button{
+  height: 60px;
+  color: rgb(24, 42, 51);
+  border-radius: 15px;
+  font-size: 18px;
+  font-weight: 800;
+  border: none;
+}
+.menu > div:nth-child(3) > button:first-child{
+  background-color: rgb(242, 177, 55);
+  box-shadow: 0px 7px 0px rgb(255,200 ,96 );
+}
+.menu > div:nth-child(3) > button:nth-child(2){
+  background-color: rgb(49,195,189);
+  box-shadow: 0px 7px 0px rgb(101,233,228);
+}
+.difficultyLevel{
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 20vw;
+  height: 40vh;
+}
+.difficultyLevel > button{
+  width: 100%;
+  height: 60px;
+  color: rgb(24, 42, 51);
+  border-radius: 15px;
+  font-size: 18px;
+  font-weight: 800;
+  border: none;
+  box-shadow: 0px 7px 0px rgb(101,233,228)
+}
+.gameBoardContainer{
+  display: none;
+  height: 80%;
+  width: 35%;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+.gameBoardContainer > div:first-child{
+  display: flex;
+  justify-content: space-between;
+  height: 10%;
+  width: 100%;
+  align-items: center;
+}
+.gameBoardContainer > div:first-child > div:nth-child(2){
+  display: flex;
+  width: 30%;
+  justify-content: center;
+  align-items: center;
+  height: 80%;
+  gap: 15px;
+  background-color: rgb(31,54,65);
+  border-radius: 10px;
+  border: none;
+  box-shadow: 0px 7px 0px rgb(23, 39, 46);
+  color: #A8BFC9;
+  font-weight: 500;
+}
+.gameBoardContainer > div:first-child > div:nth-child(2) > img{
+  width: 35px;
+}
+.gameBoardContainer > div:first-child > div:nth-child(3){
+  background-color: #A8BFC9;
+  box-shadow:0px 7px 0px rgb(208, 222, 227);
+  width: 10%;
+  height: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.gameBoard{
+  height: 80%;
+  width: 100%;
+  display: grid;
+  grid-template-rows: repeat(3,1fr);
+  grid-template-columns: repeat(3,1fr);
+  gap: 20px;
+}
+.gameBoard > button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(31,54,65);
+  border-radius: 15px;
+  border: none;
+  box-shadow: 0px 7px 0px rgb(23, 39, 46);
+}
+.gameBoardContainer > div:nth-child(3){
+  height: 10%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.gameBoardContainer > div:nth-child(3) > div{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  width: 30%;
+  font-size: 18px;
+  font-weight: 600;
+  color: rgb(24, 42, 51);
+}
+.gameBoardContainer > div:nth-child(3) > div:first-child{
+  background-color: rgb(101,233,228);
+}
+.gameBoardContainer > div:nth-child(3) > div:nth-child(2){
+  background-color: rgb(219,232,237);
+}
+.gameBoardContainer > div:nth-child(3) > div:nth-child(3){
+  background-color: rgb(242,177,55);
+}
+.refree{
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  position: absolute;
+  height: 30%;
+  width: 100vw;
+  background-color: rgb(19, 33, 40);
+}
+.refree > div:nth-child(1){
+  color: rgb(219,232,237);
+  font-weight: 600;
+}
+.refree > div:nth-child(2){
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 40px;
+  font-weight: 900;
+  color: rgb(242,177,55);
+}
+.refree > div:nth-child(3){
+  width: 40%;
+  height: 30%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  color: rgb(24, 42, 51);
+  font-weight: 900;
+}
+.refree > div:nth-child(3) > button:first-child{
+  width: 80px;
+  height: 65%;
+  border-radius: 10px;
+  border: none;
+  color: rgb(24, 42, 51);
+  font-weight: 600;
+  background-color: rgb(219,232,237);
+  box-shadow:0px 7px 0px rgb(208, 222, 227)
+}
+.refree > div:nth-child(3) > button:nth-child(2){
+  width: 160px;
+  height: 65%;
+  border-radius: 10px;
+  border: none;
+  color: rgb(24, 42, 51);
+  font-weight: 600;
+  background-color:rgb(242,177,55) ;
+  box-shadow: 0px 7px 0px rgb(255,200 ,96 )
+}
+
+@media(min-width: 1600px) and (max-width:1700px){
+.menu{
+  width: 30vw;
+}
+}
+@media(min-width: 1500px) and (max-width:1600px){
+.menu{
+  width: 35vw;
+}
+.gameBoardContainer{
+  width: 40%;
+}
+}
+@media(min-width: 1400px) and (max-width:1500px){
+.menu{
+  width: 40vw;
+}
+.gameBoardContainer{
+  width: 45%;
+}
+}
+@media(min-width: 1300px) and (max-width:1400px){
+  .menu{
+    width: 45vw;
+  }
+  .gameBoardContainer{
+    width: 50%;
+  }
+  .difficultyLevel{
+    width: 40vw;
+  }
+}
+@media(min-width: 1200px) and (max-width:1300px){
+  .menu{
+    width: 50vw;
+  }
+  .gameBoardContainer{
+    width: 55%;
+  }
+  .difficultyLevel{
+    width: 40vw;
+  }
+}
+@media(min-width: 1100px) and (max-width:1200px){
+  .menu{
+    width:55vw ;
+  }
+  .gameBoardContainer{
+    width: 60%;
+  }
+  .difficultyLevel{
+    width: 40vw;
+  }
+}
+@media(min-width: 1000px) and (max-width:1100px){
+  .menu{
+    width: 60vw;
+  }
+  .gameBoardContainer{
+    width: 65%;
+  }
+  .difficultyLevel{
+    width: 40vw;
+  }
+}
+@media(min-width: 900px) and (max-width:1000px){
+  .menu{
+    width: 65vw;
+  }
+  .gameBoardContainer{
+    width: 70%;
+  }
+  .difficultyLevel{
+    width: 40vw;
+  }
+}
+@media(min-width: 800px) and (max-width:900px){
+  .menu{
+    width: 70vw;
+  }
+  .gameBoardContainer{
+    width: 75%;
+  }
+  .difficultyLevel{
+    width: 50vw;
+  }
+}
+@media(min-width: 700px) and (max-width:800px){
+  .menu{
+    width: 75vw;
+  }
+  .difficultyLevel{
+    width: 50vw;
+  }
+  .gameBoardContainer{
+    width: 80%;
+  }
+}
+@media(min-width: 600px) and (max-width:700px){
+  .menu{
+    width: 80vw;
+  }
+  .gameBoardContainer{
+    width: 85%;
+  }
+  .difficultyLevel{
+    width: 50vw;
+  }
+}
+@media(min-width: 500px) and (max-width:600px){
+  .menu{
+    width: 85vw;
+  }
+  .gameBoardContainer{
+    width: 90%;
+  }
+  .difficultyLevel{
+    width: 70vw;
+  }
+}
+@media(min-width: 400px) and (max-width:500px){
+  .menu{
+    width: 90vw;
+  }
+  .gameBoardContainer{
+    width: 95%;
+  }
+  .difficultyLevel{
+    width: 80vw;
+  }
+}
+@media(max-width:400px){
+  .menu{
+    width: 98vw;
+  }
+  .gameBoardContainer{
+    width: 99%;
+  }
+  .difficultyLevel{
+    width: 90vw;
+  }
+}

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tictactoe</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="theGame">
+        <div class="menu">
+            <div>
+                <img src="assets/logo.svg" alt="">
+            </div>
+            <div>
+                <div>PICK PLAYER 1's MARK</div>
+                <div>
+                    <div class="markX"><img src="assets/icon-x-edited.svg" alt="" class="iconXimage"></div>
+                    <div class="markO"><img src="assets/icon-o-edited.svg" alt="" class="iconOimage"></div>
+                </div>
+                <div>REMEMBER : X GOES FIRST</div>
+            </div>
+            <div>
+                <button class="humanVcpu">NEW GAME (VS CPU)</button>
+                <button class="humanVhuman">NEW GAME (VS PLAYER)</button>
+            </div>
+        </div>
+        <div class="difficultyLevel">
+            <button class="easyMode">EASY</button>
+            <button class="hardMode">HARD</button>
+        </div>
+        <div class="gameBoardContainer">
+            <div>
+                <div><img src="assets/logo.svg" alt=""></div>
+                <div><img src="assets/icon-x-edited2.svg" alt="" class="turnDecider"><span>TURN</span></div>
+                <div class="restartBtn"><img src="assets/icon-restart.svg" alt=""></div>
+            </div>
+            <div class="gameBoard">
+                <button class="selectMark" value ="0" id="0"><img src="" alt="" class="selectMarkIcons"></button>
+                <button class="selectMark" value ="1" id="1"><img src="" alt="" class="selectMarkIcons"></button>
+                <button class="selectMark" value ="2" id="2"><img src="" alt="" class="selectMarkIcons"></button>
+                <button class="selectMark" value ="3" id="3"><img src="" alt="" class="selectMarkIcons"></button>
+                <button class="selectMark" value ="4" id="4"><img src="" alt="" class="selectMarkIcons"></button>
+                <button class="selectMark" value ="5" id="5"><img src="" alt="" class="selectMarkIcons"></button>
+                <button class="selectMark" value ="6" id="6"><img src="" alt="" class="selectMarkIcons"></button>
+                <button class="selectMark" value ="7" id="7"><img src="" alt="" class="selectMarkIcons"></button>
+                <button class="selectMark" value ="8" id="8"><img src="" alt="" class="selectMarkIcons"></button>
+            </div>
+            <div>
+                <div>
+                    <div>X<span class="playerName1">(P1)</span></div>
+                    <div class="XscoresDisplay">0</div>
+                </div>
+                <div>
+                    <div>TIES</div>
+                    <div class="TieScoresDisplay">0</div>
+                </div>
+                <div>
+                    <div>O<span class="playerName2">(P2)</span></div>
+                    <div class="OscoresDisplay">0</div>
+                </div>
+            </div>
+        </div>
+        <div class="refree refree1">
+            <div>PLAYER 1 WINS!</div>
+            <div><img src="assets/icon-o.svg" alt=""> <span>TAKES THE ROUND</span></div>
+            <div>
+                <button class="quit">QUIT</button>
+                <button class="nextRound">NEXT ROUND</button>
+            </div>
+        </div>
+        <div class="refree refree2">
+            <div>PLAYER 2 WINS!</div>
+            <div><img src="assets/icon-o.svg" alt=""> <span>TAKES THE ROUND</span></div>
+            <div>
+                <button class="quit">QUIT</button>
+                <button class="nextRound">NEXT ROUND</button>
+            </div>
+        </div>
+        <div class="refree refree3">
+            <div>PLAYER 1 WINS</div>
+            <div><img src="assets/icon-x.svg" alt=""> <span>TAKES THE ROUND</span></div>
+            <div>
+                <button class="quit">QUIT</button>
+                <button class="nextRound">NEXT ROUND</button>
+            </div>
+        </div>
+        <div class="refree refree4">
+            <div>PLAYER 2 WINS</div>
+            <div><img src="assets/icon-x.svg" alt=""> <span>TAKES THE ROUND</span></div>
+            <div>
+                <button class="quit">QUIT</button>
+                <button class="nextRound">NEXT ROUND</button>
+            </div>
+        </div>
+        <div class="refree refree5">
+            <div></div>
+            <div><span>ROUND TIED</span></div>
+            <div>
+                <button class="quit">QUIT</button>
+                <button class="nextRound">NEXT ROUND</button>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
