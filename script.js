@@ -91,8 +91,8 @@ humanVhuman.addEventListener("click",(data)=>{
     userData.mode = 0
 })
 function playGame(markTarget,data){
-    if(markTarget.firstChild.src === "file:///C:/Users/DELL%20E7440%20i7/practice/assets/icon-x.svg" || 
-    markTarget.firstChild.src === "file:///C:/Users/DELL%20E7440%20i7/practice/assets/icon-o.svg"|| data.gameClickCount > 8||
+    if(markTarget.firstChild.src === "assets/icon-x.svg" || 
+    markTarget.firstChild.src === "assets/icon-o.svg"|| data.gameClickCount > 8||
     data.gameOver === true){
      return
     }
@@ -170,12 +170,12 @@ function changeTurn(data){
 }
 function gameVariables(data){
     data = {
-        player1Mark :"file:///C:/Users/DELL%20E7440%20i7/practice/assets/icon-x.svg",
-        player2Mark : "file:///C:/Users/DELL%20E7440%20i7/practice/assets/icon-o.svg",
+        player1Mark :"assets/icon-x.svg",
+        player2Mark : "assets/icon-o.svg",
         gameClickCount: 0,
         gameOver : false,
-        turnIcon1 : "file:///C:/Users/DELL%20E7440%20i7/practice/assets/icon-x-edited2.svg",
-        turnIcon2 : "file:///C:/Users/DELL%20E7440%20i7/practice/assets/icon-o-edited.svg",
+        turnIcon1 : "assets/icon-x-edited2.svg",
+        turnIcon2 : "assets/icon-o-edited.svg",
         gameBoard : [0,1,2,3,4,5,6,7,8],
         winner : false,
         winningConditions : [
@@ -192,7 +192,7 @@ function gameVariables(data){
     eventListenerToBoxes(data)
 }
 function changeGameBoardValue(markTarget,data){
-    if(markTarget.firstChild.src === "file:///C:/Users/DELL%20E7440%20i7/practice/assets/icon-x.svg"){
+    if(markTarget.firstChild.src === "assets/icon-x.svg"){
         data.gameBoard[markTarget.getAttribute('value')] = "X"
     }
     else{
@@ -213,7 +213,7 @@ function resetGameData(data){
     data.gameOver = false
     // data.gameClickCount = 0
     data.gameBoard = [0,1,2,3,4,5,6,7,8]
-    turnDecider.src = "file:///C:/Users/DELL%20E7440%20i7/practice/assets/icon-x-edited2.svg"
+    turnDecider.src = "assets/icon-x-edited2.svg"
     GameCountClick = 0
 }
 function markXChosen(){
