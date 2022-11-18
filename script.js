@@ -11,12 +11,25 @@ let OscoresDisplay = document.querySelector(".OscoresDisplay");
 let TieScoresDisplay = document.querySelector(".TieScoresDisplay");
 let nextRoundBtn = document.querySelectorAll(".nextRound")
 let refree = document.querySelectorAll(".refree")
+let restartBtn = document.querySelector(".restartBtn")
+let quitBtn = document.querySelectorAll(".quit")
 nextRoundBtn.forEach(btn => {
     btn.addEventListener("click",()=>{
         resetGameData()
         refree.forEach(element => {
             element.style.display = "none"
         });
+    })
+});
+restartBtn.addEventListener("click",()=>{
+    resetGameData()
+    refree.forEach(element => {
+        element.style.display = "none"
+    });
+})
+quitBtn.forEach(btn => {
+    btn.addEventListener("click",()=>{
+        location.reload()
     })
 });
 humanVhumanBtn.addEventListener("click",()=>{
