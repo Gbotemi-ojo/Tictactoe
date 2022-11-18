@@ -86,6 +86,11 @@ function playGame(markTarget){
     }
     else if(userData.mode === 1){
         markTarget.firstChild.src = userData.markX
+        changeGameBoardValue(markTarget)
+        checkWinningCondition()
+        if(userData.gameover === true){
+            return
+        }
         cpuEasyAi()
         console.log("easy mode")
     }
