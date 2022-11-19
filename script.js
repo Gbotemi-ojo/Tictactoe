@@ -139,6 +139,7 @@ function playGame(markTarget){
     if(userData.getMode() === 0){
         changeTurn(markTarget)
         changeTurnSrc()
+        console.log(userData.getGameBoard())
         console.log(userData.getDrawCount())
     }
     else if(userData.getMode() === 1){
@@ -148,6 +149,7 @@ function playGame(markTarget){
         if(userData.getGameOver() === true){
             return
         }
+         console.log(userData.getGameBoard())
         cpuEasyAi()
         console.log("easy mode")
     }
@@ -231,9 +233,11 @@ function cpuEasyAi(){
         (space) => space !== "X" && space !== "O"
       );
       let move = availableSpaces[Math.floor(Math.random() * availableSpaces.length)];
-      userData.getGameBoard[move] = "O";
+      userData.getGameBoard()[move] = "O";
       setTimeout(() => {
         let box = document.getElementById(`${move}`);
         box.firstChild.src = userData.markO
+        box.style.pointerEvents = "none";
       }, 200);
+      console.log(userData.getGameBoard())
 }
