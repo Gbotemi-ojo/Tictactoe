@@ -1,4 +1,3 @@
-// tackle the problem using global variables
 let menu = document.querySelector(".menu");
 let humanVhumanBtn = document.querySelector(".humanVhuman");
 let humanVcpuBtn = document.querySelector(".humanVcpu");
@@ -33,30 +32,30 @@ quitBtn.forEach(btn => {
     })
 });
 humanVhumanBtn.addEventListener("click",()=>{
-    userData.mode = 0
+    userData.setMode(0)
     menu.style.display = "none"
     gameBoardContainer.style.display = "flex"
 })
 humanVcpuBtn.addEventListener("click",()=>{
-    userData.mode = 1
+    userData.setMode(1)
     menu.style.display = "none"
     gameBoardContainer.style.display = "flex"
 })
-let userData = {
-    mode : 0,
-    gameBoard: [0,1,2,3,4,5,6,7,8],
-    markX : "assets2/x.svg",
-    markO : "assets2/o.svg",
-    turnDecider_O: "assets2/oturn.svg",
-    turnDecider_X : "assets2/xturn.svg",
-    winner: false,
-    draw : false,
-    gameover : false,
-    drawCount : 0,
-    player1Score : 0,
-    player2Score : 0,
-    tieScores : 0,
-    winningConditions: [
+let userData = (function(){
+    let _mode = 0
+    let _gameBoard = [0,1,2,3,4,5,6,7,8]
+    let markX = "assets2/x.svg"
+    let markO = "assets2/o.svg"
+    let turnDecider_O = "assets2/oturn.svg"
+    let turnDecider_X = "assets2/xturn.svg"
+    let _winner = false
+    let _draw = false
+    let _gameover = false
+    let _drawCount = 0
+    let _player1Score = 0
+    let _player2Score = 0
+    let _tieScores = 0
+    let _winningConditions = [
         [0,1,2],
         [3,4,5],
         [6,7,8],
@@ -66,7 +65,65 @@ let userData = {
         [0,4,8],
         [2,4,6]
     ]
-}
+    function getMode(){ return _mode}
+    function setMode(value){ _mode = value}
+    function getGameBoard(){return _gameBoard }
+    function getWinner(){ return _winner}
+    function setWinner(value){ _winner = value}
+    function getDraw(){ return _draw}
+    function setDraw(value){  _draw = value}
+    function setGameOver(value){  _gameover = value }
+    function getGameOver(){return _gameover }
+    function getDrawCount(){ return _drawCount}
+    function setDrawCount(value){  _drawCount = value }
+    function getPlayer1Score(){   return _player1Score}
+    function setPlayer1Score(value){  _player1Score = value }
+    function getPlayer2Score(){ return _player2Score }
+    function setplayer2Score(value){  _player2Score = value}
+    function getTiescores(){ return _tieScores }
+    function setTieScores(value){  _tieScores = value }
+    function getWinningConditions(){return _winningConditions}
+    function incrementDrawCount(){return _drawCount = _drawCount + 1}
+    function incrementPlayer1Score(){return _player1Score = _player1Score + 1}
+    function incrementPlayer2Score(){return _player2Score = _player2Score + 1}
+    function incrementTieScore(){return _tieScores = _tieScores + 1}
+    function resetGameData(){
+        _gameBoard = [0,1,2,3,4,5,6,7,8]
+        _winner = false
+        _draw = false
+        _gameover = false
+        _drawCount = 0
+    }
+    return{
+        getMode : getMode,
+        setMode : setMode,
+        getGameBoard : getGameBoard,
+        getWinner: getWinner,
+        setWinner : setWinner,
+        getDraw: getDraw,
+        setDraw : setDraw,
+        setGameOver: setGameOver,
+        getGameOver : getGameOver,
+        getDrawCount : getDrawCount,
+        setDrawCount : setDrawCount,
+        getPlayer1Score : getPlayer1Score,
+        setPlayer1Score : setPlayer1Score,
+        getPlayer2Score : getPlayer2Score,
+        setplayer2Score : setplayer2Score,
+        getTiescores : getTiescores,
+        setTieScores : setTieScores,
+        getWinningConditions : getWinningConditions,
+        incrementDrawCount : incrementDrawCount,
+        incrementPlayer1Score : incrementPlayer1Score,
+        incrementPlayer2Score : incrementPlayer2Score,
+        incrementTieScore : incrementTieScore,
+        resetGameData : resetGameData,
+        markX,
+        markO,
+        turnDecider_O,
+        turnDecider_X,
+    }
+})()
 let selectMarks = document.querySelectorAll(".selectMark")
 selectMarks.forEach(selectedMark => {
     selectedMark.addEventListener("click",(e)=>{
@@ -75,20 +132,20 @@ selectMarks.forEach(selectedMark => {
     })
 });
 function playGame(markTarget){
-    if(userData.winner === true){
+    if(userData.getWinner() === true){
         return
     }
-    userData.drawCount++
-    if(userData.mode === 0){
+    userData.incrementDrawCount()
+    if(userData.getMode() === 0){
         changeTurn(markTarget)
         changeTurnSrc()
-        console.log(userData.drawCount)
+        console.log(userData.getDrawCount())
     }
-    else if(userData.mode === 1){
+    else if(userData.getMode() === 1){
         markTarget.firstChild.src = userData.markX
         changeGameBoardValue(markTarget)
         checkWinningCondition()
-        if(userData.gameover === true){
+        if(userData.getGameOver() === true){
             return
         }
         cpuEasyAi()
@@ -116,52 +173,48 @@ function changeTurn(markTarget){
 }
 function changeGameBoardValue(markTarget){
     if(markTarget.firstChild.getAttribute('src') === "assets2/x.svg"){
-        userData.gameBoard[markTarget.getAttribute('value')] = "X"
+        userData.getGameBoard()[markTarget.getAttribute('value')] = "X"
     }
     else{
-        userData.gameBoard[markTarget.getAttribute('value')] = "O"
+        userData.getGameBoard()[markTarget.getAttribute('value')] = "O"
     }
 }
 function checkWinningCondition(){
-    userData.winningConditions.forEach(condition =>{
-        if(userData.gameBoard[condition[0]] === "X" && userData.gameBoard[condition[1]] === "X" && userData.gameBoard[condition[2]] === "X"){
-            userData.winner = true
-            userData.gameover = true
-            if(userData.winner === true){
-                userData.player1Score++
+    userData.getWinningConditions().forEach(condition =>{
+        if(userData.getGameBoard()[condition[0]] === "X" && userData.getGameBoard()[condition[1]] === "X" && userData.getGameBoard()[condition[2]] === "X"){
+            userData.setWinner(true)
+            userData.setGameOver(true)
+            if(userData.getWinner() === true){
+                userData.incrementPlayer1Score()
             }
-            XscoresDisplay.textContent = userData.player1Score
+            XscoresDisplay.textContent = userData.getPlayer1Score()
             let xWon = document.querySelector(".xWon")
             xWon.style.display = "flex"
         }
-        else if(userData.gameBoard[condition[0]] === "O" && userData.gameBoard[condition[1]] === "O" && userData.gameBoard[condition[2]] === "O"){
-            userData.winner = true
-            userData.gameover = true
-            if(userData.winner === true){
-                userData.player2Score++
+        else if(userData.getGameBoard()[condition[0]] === "O" && userData.getGameBoard()[condition[1]] === "O" && userData.getGameBoard()[condition[2]] === "O"){
+            userData.setWinner(true)
+            userData.setGameOver(true)
+            if(userData.getWinner() === true){
+                userData.incrementPlayer2Score()
             }
-            OscoresDisplay.textContent = userData.player2Score
+            OscoresDisplay.textContent = userData.getPlayer2Score()
             let oWon = document.querySelector(".oWon")
             oWon.style.display = "flex"
         }
     })
 }
 function checkForDraw(){
-    if(userData.drawCount >= 9 && userData.winner === false){
-        userData.gameover = true
-        userData.tieScores++
-        TieScoresDisplay.textContent = userData.tieScores
+    if(userData.getDrawCount() >= 9 && userData.getWinner() === false){
+        userData.setGameOver(true)
+        userData.incrementTieScore()
+        TieScoresDisplay.textContent = userData.getTiescores()
         let draw = document.querySelector(".draw")
         draw.style.display = "flex"
         console.log("draw")
     }
 }
 function resetGameData(){
-    userData.gameBoard = [0,1,2,3,4,5,6,7,8]
-    userData.winner = false
-    userData.draw = false
-    userData.gameover = false
-    userData.drawCount = 0
+    userData.resetGameData()
     let selectMarkIcons = document.querySelectorAll(".selectMarkIcons")
     selectMarkIcons.forEach(icon => {
         icon.src = ""
@@ -173,12 +226,12 @@ function resetGameData(){
     })
 };
 function cpuEasyAi(){
-    userData.drawCount++
-    let availableSpaces = userData.gameBoard.filter(
+    userData.incrementDrawCount()
+    let availableSpaces = userData.getGameBoard().filter(
         (space) => space !== "X" && space !== "O"
       );
       let move = availableSpaces[Math.floor(Math.random() * availableSpaces.length)];
-      userData.gameBoard[move] = "O";
+      userData.getGameBoard[move] = "O";
       setTimeout(() => {
         let box = document.getElementById(`${move}`);
         box.firstChild.src = userData.markO
