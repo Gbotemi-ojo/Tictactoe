@@ -18,7 +18,7 @@ nextRoundBtn.forEach(btn => {
         refree.forEach(element => {
             element.style.display = "none"
         });
-    })
+    });
 });
 restartBtn.addEventListener("click",()=>{
     resetGameData()
@@ -70,18 +70,12 @@ let userData = (function(){
     function getGameBoard(){return _gameBoard }
     function getWinner(){ return _winner}
     function setWinner(value){ _winner = value}
-    function getDraw(){ return _draw}
-    function setDraw(value){  _draw = value}
     function setGameOver(value){  _gameover = value }
     function getGameOver(){return _gameover }
     function getDrawCount(){ return _drawCount}
-    function setDrawCount(value){  _drawCount = value }
     function getPlayer1Score(){   return _player1Score}
-    function setPlayer1Score(value){  _player1Score = value }
     function getPlayer2Score(){ return _player2Score }
-    function setplayer2Score(value){  _player2Score = value}
     function getTiescores(){ return _tieScores }
-    function setTieScores(value){  _tieScores = value }
     function getWinningConditions(){return _winningConditions}
     function incrementDrawCount(){return _drawCount = _drawCount + 1}
     function incrementPlayer1Score(){return _player1Score = _player1Score + 1}
@@ -100,18 +94,12 @@ let userData = (function(){
         getGameBoard : getGameBoard,
         getWinner: getWinner,
         setWinner : setWinner,
-        getDraw: getDraw,
-        setDraw : setDraw,
         setGameOver: setGameOver,
         getGameOver : getGameOver,
         getDrawCount : getDrawCount,
-        setDrawCount : setDrawCount,
         getPlayer1Score : getPlayer1Score,
-        setPlayer1Score : setPlayer1Score,
         getPlayer2Score : getPlayer2Score,
-        setplayer2Score : setplayer2Score,
         getTiescores : getTiescores,
-        setTieScores : setTieScores,
         getWinningConditions : getWinningConditions,
         incrementDrawCount : incrementDrawCount,
         incrementPlayer1Score : incrementPlayer1Score,
@@ -139,8 +127,6 @@ function playGame(markTarget){
     if(userData.getMode() === 0){
         changeTurn(markTarget)
         changeTurnSrc()
-        console.log(userData.getGameBoard())
-        console.log(userData.getDrawCount())
     }
     else if(userData.getMode() === 1){
         markTarget.firstChild.src = userData.markX
@@ -149,9 +135,7 @@ function playGame(markTarget){
         if(userData.getGameOver() === true){
             return
         }
-         console.log(userData.getGameBoard())
         cpuEasyAi()
-        console.log("easy mode")
     }
     changeGameBoardValue(markTarget)
     checkWinningCondition()
@@ -212,7 +196,6 @@ function checkForDraw(){
         TieScoresDisplay.textContent = userData.getTiescores()
         let draw = document.querySelector(".draw")
         draw.style.display = "flex"
-        console.log("draw")
     }
 }
 function resetGameData(){
@@ -239,5 +222,4 @@ function cpuEasyAi(){
         box.firstChild.src = userData.markO
         box.style.pointerEvents = "none";
       }, 200);
-      console.log(userData.getGameBoard())
 }
